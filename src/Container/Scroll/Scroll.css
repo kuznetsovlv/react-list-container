@@ -1,0 +1,13 @@
+.scroll {
+    position: relative;
+}
+
+.slider {
+    width: 100%;
+    height: 15px;
+    background: #ccc;
+    border-radius: 2px;
+    cursor: pointer;
+
+    position: absolute;
+}

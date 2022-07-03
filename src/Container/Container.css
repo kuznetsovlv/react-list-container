@@ -1,0 +1,7 @@
+.container {
+    height: 100%;
+    display: grid;
+    grid-gap: 0;
+    grid-template-columns: calc(100% - 5px) 5px;
+    grid-template-rows: 100%;
+}
