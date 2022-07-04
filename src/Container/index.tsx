@@ -18,7 +18,7 @@ const Container = () => {
     return (
         <div className="container" ref={containerRef}>
             <List/>
-            <Scroll height={height} position={position} top={top} onScroll={setPosition}/>
+            <Scroll contentHeight={0} height={height} position={position} top={top} onScroll={setPosition}/>
         </div>
     );
 }
