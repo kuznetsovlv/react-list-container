@@ -24,8 +24,6 @@ const List = ({list, itemSize, before, beforeSize, after, afterSize, height, pos
 
     const itemShift = beforeSize + from * itemSize - shift;
 
-    console.log(shift, contentHeight - afterSize, contentHeight, height, position);
-
     return (
         <ul className="list">
             {shift < beforeSize && <Item top={-shift}>{before}</Item>}
