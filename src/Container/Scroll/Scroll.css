@@ -1,5 +1,8 @@
 .scroll {
+    border: 1px solid #ccc;
     position: relative;
+
+    cursor: pointer;
 }
 
 .slider {
