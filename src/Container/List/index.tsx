@@ -16,19 +16,23 @@ type ListProps = {
 };
 
 const List = ({list, itemSize, before, beforeSize, after, afterSize, height, position, contentHeight }: ListProps) => {
-    const shift = (contentHeight - height) * position / 100;
+    const shift = (contentHeight - height * position / 100) * position / 100;
 
-    const from = Math.max(Math.floor((shift - beforeSize) / itemSize), 0);
+    const listCoords = Math.max(shift - beforeSize, 0);
 
-    const to = Math.floor((shift - beforeSize + height) / itemSize);
+    const from = Math.floor(listCoords / itemSize);
 
-    const itemShift = beforeSize + from * itemSize - shift;
+    const to = Math.floor((listCoords + height) / itemSize);
+
+    const itemShift = listCoords  % itemSize - itemSize;
+
+    console.log(shift, contentHeight - height, position, contentHeight, height);
 
     return (
         <ul className="list">
             {shift < beforeSize && <Item top={-shift}>{before}</Item>}
             {list.slice(from, to + 1).map((el, index) => <Item key={String(index + from)} top={itemShift}>{el}</Item>)}
-            {(shift > contentHeight - height - afterSize || contentHeight - afterSize < height) && <Item top={shift - contentHeight + afterSize}>{after}</Item>}
+            {(shift > contentHeight - height - afterSize || contentHeight - afterSize < height) && <Item top={itemShift}>{after}</Item>}
         </ul>
     );
 }

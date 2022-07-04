@@ -27,7 +27,11 @@ const Container = ({list, itemSize, beforeSize, afterSize, ...props}: ContainerP
     useEffect(() => setRect(containerRef?.current?.getBoundingClientRect() ?? { height: 0, top: 0 }), [containerRef, setRect]);
 
     return (
-        <div className="container" ref={containerRef}>
+        <div
+            className="container"
+            ref={containerRef}
+            onWheel={({ deltaY }) => setPosition(Math.max(Math.min(position + 100 * deltaY / (contentHeight - height), 100),0))}
+        >
             <List {...props}
                   list={list}
                   itemSize={itemSize}
