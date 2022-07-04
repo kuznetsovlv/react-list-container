@@ -1,0 +1,7 @@
+.regular {
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-image: linear-gradient(15deg, #5c5, #afa);
+}

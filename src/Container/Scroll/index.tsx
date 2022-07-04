@@ -13,7 +13,7 @@ type ScrollProps = {
 const Scroll = ({ contentHeight, height, position, top, onScroll }: ScrollProps) => {
     const [{ startClientY, startPosition }, setStartPosition] = useState({ startClientY: 0, startPosition: 0 });
 
-    const sliderHeight = contentHeight ? Math.min(Math.max(height * height / contentHeight, 5), height) : height;
+    const sliderHeight = contentHeight ? Math.min(Math.max(height * height / contentHeight, 10), height) : height;
 
     const handleShift: DragEventHandler<HTMLDivElement> = ({ clientY }) => onScroll(Math.max(Math.min(startPosition + 100 * (clientY - startClientY) / height, 100), 0));
 

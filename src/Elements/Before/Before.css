@@ -1,0 +1,7 @@
+.before {
+    height: 70px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-image: linear-gradient(15deg, #ccc, #fff);
+}

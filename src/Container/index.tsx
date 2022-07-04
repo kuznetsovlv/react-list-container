@@ -1,11 +1,22 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, {useRef, useEffect, useState, ReactNode} from 'react';
 
 import List from './List';
 import Scroll from './Scroll';
 import './Container.css';
 
-const Container = () => {
+type ContainerProps = {
+    list: ReactNode[];
+    itemSize: number;
+    before: ReactNode;
+    beforeSize: number;
+    after: ReactNode;
+    afterSize: number;
+};
+
+const Container = ({list, itemSize, beforeSize, afterSize, ...props}: ContainerProps) => {
     const containerRef = useRef<HTMLDivElement>(null);
+
+    const contentHeight = beforeSize + afterSize + list.length * itemSize;
 
     const [{ height, top }, setRect] = useState({
         height: 0,
@@ -17,8 +28,16 @@ const Container = () => {
 
     return (
         <div className="container" ref={containerRef}>
-            <List/>
-            <Scroll contentHeight={0} height={height} position={position} top={top} onScroll={setPosition}/>
+            <List {...props}
+                  list={list}
+                  itemSize={itemSize}
+                  beforeSize={beforeSize}
+                  afterSize={afterSize}
+                  height={height}
+                  position={position}
+                  contentHeight={contentHeight}
+            />
+            <Scroll contentHeight={contentHeight} height={height} position={position} top={top} onScroll={setPosition}/>
         </div>
     );
 }
