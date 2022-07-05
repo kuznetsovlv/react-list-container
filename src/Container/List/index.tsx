@@ -24,9 +24,7 @@ const List = ({list, itemSize, before, beforeSize, after, afterSize, height, pos
 
     const to = Math.floor((listCoords + height) / itemSize);
 
-    const itemShift = listCoords  % itemSize - itemSize;
-
-    console.log(shift, contentHeight - height, position, contentHeight, height);
+    const itemShift = -(listCoords % itemSize);
 
     return (
         <ul className="list">
