@@ -1,5 +1,5 @@
-import React, { useRef, useEffect, useState } from 'react';
-import type { ReactNode } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
+import type { ReactNode, WheelEvent } from 'react';
 import classNames from 'classnames';
 
 import List from './List';
@@ -46,19 +46,22 @@ const Container = ({
     <div
       className={classNames('container', { withscroll: needScroll })}
       ref={containerRef}
-      onWheel={({ deltaY }) => {
-        if (needScroll) {
-          setPosition(
-            Math.max(
-              Math.min(
-                position + (100 * deltaY) / (contentHeight - height),
-                100
-              ),
-              0
-            )
-          );
-        }
-      }}
+      onWheel={useCallback(
+        ({ deltaY }: WheelEvent<HTMLDivElement>) => {
+          if (needScroll) {
+            setPosition(
+              Math.max(
+                Math.min(
+                  position + (100 * deltaY) / (contentHeight - height),
+                  100
+                ),
+                0
+              )
+            );
+          }
+        },
+        [needScroll, position, contentHeight, height, setPosition]
+      )}
     >
       <List
         {...props}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import type { ReactNode } from 'react';
 
 import Item from './Item';
@@ -40,11 +40,15 @@ const List = ({
   return (
     <ul className="list">
       {shift < beforeSize && <Item top={itemShift}>{before}</Item>}
-      {list.slice(from, to + 1).map((el, index) => (
-        <Item key={String(index + from)} top={itemShift}>
-          {el}
-        </Item>
-      ))}
+      {useMemo(
+        () =>
+          list.slice(from, to + 1).map((el, index) => (
+            <Item key={String(index + from)} top={itemShift}>
+              {el}
+            </Item>
+          )),
+        [from, to, itemShift]
+      )}
       {(shift > contentHeight - height - afterSize ||
         contentHeight - afterSize < height) && (
         <Item top={itemShift}>{after}</Item>
