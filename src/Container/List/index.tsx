@@ -47,7 +47,7 @@ const List = ({
               {el}
             </Item>
           )),
-        [from, to, itemShift]
+        [list, from, to, itemShift]
       )}
       {(shift > contentHeight - height - afterSize ||
         contentHeight - afterSize < height) && (
