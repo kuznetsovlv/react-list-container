@@ -4,6 +4,7 @@ This project is the solution of Middle/Senior Front-End Engineer Test Task.\
 It was bootstrapped with Create React App.
 
 ## Task:
+
 Create a component that effectively renders a large list of items (e.g. 10,000 elements) with the
 assumption that all items in the list are the same size.\
 Support items of different sizes and render additional elements above and below the visible
@@ -38,4 +39,5 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 ## License
+
 [MIT](./LICENSE) Copyright (c) 2022 Kuznetsov Leonid.

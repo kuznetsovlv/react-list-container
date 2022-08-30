@@ -1,0 +1,86 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "eslint-config-silence",
+    //        "silence/react",
+    "plugin:jest/recommended",
+    "plugin:jest/style"
+  ],
+  "overrides": [
+    {
+      "files": ["**/*.ts?(x)"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "ecmaFeatures": {
+          "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+      },
+      "plugins": ["@typescript-eslint"],
+      // You can add Typescript specific rules here.
+      // If you are adding the typescript variant of a rule which is there in the javascript
+      // ruleset, disable the JS one.
+      "rules": {
+        "@typescript-eslint/no-array-constructor": "warn",
+        "no-array-constructor": "off"
+      }
+    }
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly",
+    "globalThis": false
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true,
+      "experimentalObjectRestSpread": true
+    },
+    "ecmaVersion": 11,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "prettier", "jest"],
+  "settings": {
+    "react": {
+      "version": "detect" // React version. "detect" automatically picks the version you have installed.
+    }
+  },
+  "rules": {
+    "no-param-reassign": ["off"],
+    "prettier/prettier": ["error"],
+    "react/display-name": ["off"],
+    "react/prop-types": ["off"],
+    "no-case-declarations": ["off"],
+    "eqeqeq": ["warn"],
+    "sonarjs/no-small-switch": ["off"],
+    "sonarjs/max-switch-cases": ["off"],
+    "sonarjs/cognitive-complexity": ["warn"],
+    "init-declarations": ["off"],
+    "no-bitwise": ["off"],
+    "no-extra-boolean-cast": ["off"],
+    "no-multi-assign": ["off"],
+    "unicorn/consistent-function-scoping": ["off"], // Switched off because of incorrect works
+    "unicorn/no-unsafe-regex": ["off"],
+    "unicorn/number-literal-case": ["off"],
+    "unicorn/prefer-string-slice": ["off"],
+    "unicorn/prefer-query-selector": ["off"],
+    "jsx-a11y/click-events-have-key-events": ["off"],
+    "jsx-a11y/no-static-element-interactions": ["off"],
+    "jsx-a11y/no-autofocus": ["off"],
+    "jsx-a11y/no-noninteractive-element-interactions": ["off"],
+    "no-unused-vars": ["off"],
+    "@typescript-eslint/no-unused-vars": ["warn"],
+    "@typescript-eslint/consistent-type-imports": ["error"],
+    "no-duplicate-imports": ["off"],
+    "@typescript-eslint/no-duplicate-imports": ["error"]
+  }
+}

@@ -1,8 +1,8 @@
 .regular {
-    height: 50px;
-    line-height: 50px;
-    margin: 0;
-    padding: 0 5px;
-    overflow: hidden;
-    background-image: linear-gradient(15deg, #7d7, #afa);
+  height: 50px;
+  line-height: 50px;
+  margin: 0;
+  padding: 0 5px;
+  overflow: hidden;
+  background-image: linear-gradient(15deg, #7d7, #afa);
 }

@@ -1,8 +1,8 @@
 .before {
-    height: 70px;
-    line-height: 70px;
-    margin: 0;
-    padding: 0 5px;
-    overflow: hidden;
-    background-image: linear-gradient(15deg, #59c, #cef);
+  height: 70px;
+  line-height: 70px;
+  margin: 0;
+  padding: 0 5px;
+  overflow: hidden;
+  background-image: linear-gradient(15deg, #59c, #cef);
 }
